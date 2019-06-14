@@ -1,10 +1,12 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
+var uniqueValidator = require('mongoose-unique-validator')
 
 var ArticleSchema = new Schema({
     title: {
         type: String,
-        required: true
+        required: true,
+        unique: true
     },
     link: {
         type: String,
@@ -19,6 +21,8 @@ var ArticleSchema = new Schema({
         ref: 'Note'
     }
 });
+
+ArticleSchema.plugin(uniqueValidator)
 
 let Article = mongoose.model("Article", ArticleSchema);
 module.exports = Article;
