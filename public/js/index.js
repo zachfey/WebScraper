@@ -5,18 +5,33 @@ $('#scrape').on('click', () => {
         type: 'GET',
         url: '/scrape',
     });
+
+
 })
 
-$.getJSON("/articles", data => {
-    // For each one
-    for (var i = 0; i < data.length; i++) {
-        // Display the apropos information on the page
-        $("#articles").append(
-            "<p data-id='" + data[i]._id + "'>" + 
-            data[i].title + "<br />" + 
-            data[i].link + "<br />" +
-            data[i].snippet + "</p>");
-    }
-});
+// $( document ).ready( () => {
+//     articles = []
+//     $.getJSON("/articles", data => {
+//         // For each one
+//         for (let i in data) {
+//             // Display the apropos information on the page
+//             article = {
+//                 title: data.title,
+//                 link: data.link,
+//                 snippet: data.snippet
+//             }
+//             articles.push(article);
+//         }
+//         console.log(articles)
+//     });
+
+//     $.ajax({
+//         type: 'POST',
+//         url: '/',
+//         data: articles
+//     });
+// });
+
+
 
 

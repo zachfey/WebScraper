@@ -8,21 +8,21 @@ module.exports = app => {
         axios.get('http://www.npr.org').then(response => {
             let $ = cheerio.load(response.data);
 
-            $("article .story-text").each(function(i, element) {
+            $("article .story-text").each(function (i, element) {
 
                 let result = {};
                 // result.title = $(this).children('a').children('h3')
-                
+
                 const title = $(this).children("a").children('h3').text();
-                console.log('title: '  + title)
+                console.log('title: ' + title)
 
                 const link = $(this).children("a").attr('href')
                 console.log('link: ' + link)
 
-                const snippet =  $(this).children("a").children('p').text();
+                const snippet = $(this).children("a").children('p').text();
                 console.log('snippet: ' + snippet)
 
-                if(title && link && snippet){
+                if (title && link && snippet) {
                     result.title = title
                     result.link = link
                     result.snippet = snippet
@@ -30,10 +30,10 @@ module.exports = app => {
                 }
 
                 db.Article.create(result)
-                .then(dbArticle => {
-                    console.log(dbArticle);
-                })
-                .catch(err => console.log(err));
+                    .then(dbArticle => {
+                        console.log(dbArticle);
+                    })
+                    .catch(err => console.log(err));
 
             });
 
@@ -47,4 +47,6 @@ module.exports = app => {
             .catch(err => res.json(err))
     })
 
+
+    
 }
