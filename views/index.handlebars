@@ -9,11 +9,11 @@
 
 <div id="wrapper">
     <h1>NPR Scraper</h1>
-    {{!-- {{#each}}
-        <p>{{this.title}}</p>
-        <p>{{this.link}}</p>
-        <p>{{this.snippet}}</p>
-    {{/each}} --}}
+    {{#each articles}}
+        <p>{{title}}</p>
+        <p>{{link}}</p>
+        <p>{{snippet}}</p>
+    {{/each}}
     <div id="articles"></div>
     <div id="notes"></div>
 </div>
