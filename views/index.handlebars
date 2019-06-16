@@ -1,19 +1,17 @@
-<h1>NPR Web Scraper</h1>
-
-<button id="scrape">Scrape</button>
-<button id="display">Scrape</button>
-
 <div class='container'>
+    <h1>NPR Web Scraper</h1>
 
-</div>
+    <button class = 'btn btn-danger' id="scrape">Click here you stupid bitch</button>
+    <div id='articles'>
+        {{#each articles}}
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">{{title}}</h5>
+                <p class="card-text">{{snippet}}</p>
+                <a href={{link}} class="btn btn-primary">Check it out</a>
+            </div>
+        </div>
+        {{/each}}
+    </div>
 
-<div id="wrapper">
-    <h1>NPR Scraper</h1>
-    {{#each articles}}
-        <p>{{title}}</p>
-        <p>{{link}}</p>
-        <p>{{snippet}}</p>
-    {{/each}}
-    <div id="articles"></div>
-    <div id="notes"></div>
 </div>
