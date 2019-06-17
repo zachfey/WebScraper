@@ -9,28 +9,27 @@ $('#scrape').on('click', () => {
 
 })
 
-// $( document ).ready( () => {
-//     articles = []
-//     $.getJSON("/articles", data => {
-//         // For each one
-//         for (let i in data) {
-//             // Display the apropos information on the page
-//             article = {
-//                 title: data.title,
-//                 link: data.link,
-//                 snippet: data.snippet
-//             }
-//             articles.push(article);
-//         }
-//         console.log(articles)
-//     });
+$('.add-note').on('click', function () {
+    let note = {
+        id: $(this).data("num"),
+        body: 'test note'
+    }
 
-//     $.ajax({
-//         type: 'POST',
-//         url: '/',
-//         data: articles
-//     });
-// });
+    console.log(note);
+    $.ajax({
+        //     type: 'POST',
+        //     url: '/notes',
+        //     data: note
+        headers: {
+            "Content-Type": "application/json"
+        },
+        type: "POST",
+        url: "api/notes",
+        data: JSON.stringify(note)
+    }).then(() => location.reload())
+
+
+})
 
 
 

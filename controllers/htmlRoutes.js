@@ -14,6 +14,7 @@ module.exports = function (app) {
           // Display the apropos information on the page
           // console.log(data[i])
           article = {
+            id: i,
             title: data[i].title,
             link: data[i].link,
             snippet: data[i].snippet
@@ -21,7 +22,7 @@ module.exports = function (app) {
           // console.log(article)
           articles.push(article);
         }
-        console.log(articles)
+        // console.log(articles)
 
         res.render('index', {articles: articles});
       })

@@ -47,6 +47,15 @@ module.exports = app => {
             .catch(err => res.json(err))
     })
 
+    app.post('/api/notes', (req, res) => {
+        console.log(req.body)
+        console.log('body: ' + req.body.body)
+        console.log('id: ' + req.body.id)
+
+        // db.Note.create()
+        res.send('done noting');
+    })
+
 
     
 }
