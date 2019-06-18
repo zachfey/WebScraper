@@ -2,7 +2,6 @@
     <h1>NPR Web Scraper</h1>
 
     <button class='btn btn-danger' id="scrape">Scrape more articles</button>
-    <button class='btn btn-primary' id="show-notes">Show notes</button>
     <div id='articles'>
         {{#each articles}}
         <div class="card">
@@ -10,6 +9,8 @@
                 <h5 class="card-title">{{title}}</h5>
                 <p class="card-text">{{snippet}}</p>
                 <a href={{link}} class="btn btn-primary">Check it out</a>
+                </br>
+                </br>
                 <form>
                     <div class="form-group">
                         <label for={{id}}>User Notes:</label>
