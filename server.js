@@ -12,7 +12,9 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(express.static("public"));
 
-mongoose.connect('mongodb://localhost/WebScraper', {useNewUrlParser: true});
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/WebScraper";
+
+mongoose.connect(MONGODB_URI, {useNewUrlParser: true});
 
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
