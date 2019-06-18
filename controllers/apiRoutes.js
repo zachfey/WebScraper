@@ -41,7 +41,7 @@ module.exports = app => {
 
             });
 
-            res.send('done scraping!');
+            res.redirect('/');
         })
     });
 

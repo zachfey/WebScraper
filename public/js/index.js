@@ -3,7 +3,10 @@ $('#scrape').on('click', () => {
     $.ajax({
         type: 'GET',
         url: '/scrape',
-    });
+    })
+    .then(() => {
+        location.reload();
+    })
 
 
 })
