@@ -14,13 +14,13 @@ module.exports = app => {
                 // result.title = $(this).children('a').children('h3')
 
                 const title = $(this).children("a").children('h3').text();
-                console.log('title: ' + title)
+                // console.log('title: ' + title)
 
                 const link = $(this).children("a").attr('href')
-                console.log('link: ' + link)
+                // console.log('link: ' + link)
 
                 const snippet = $(this).children("a").children('p').text();
-                console.log('snippet: ' + snippet)
+                // console.log('snippet: ' + snippet)
 
                 if (title && link && snippet) {
                     result.title = title
@@ -29,6 +29,10 @@ module.exports = app => {
                     console.log('uploaded!')
                 }
 
+                // db.dropCollection('Article', (err, res) =>{
+                //     if (err) throw err;
+                //     console.log('collection dropped')
+                // })
                 db.Article.create(result)
                     .then(dbArticle => {
                         console.log(dbArticle);
@@ -47,15 +51,20 @@ module.exports = app => {
             .catch(err => res.json(err))
     })
 
-    app.post('/api/notes', (req, res) => {
-        console.log(req.body)
-        console.log('body: ' + req.body.body)
-        console.log('id: ' + req.body.id)
+    app.post('/notes', (req, res) => {
+        // console.log(req.body)
+        // console.log('body: ' + req.body.body)
+        // console.log('id: ' + req.body.id)
 
-        // db.Note.create()
+        db.Note.create(req.body).then(dbNote => console.log(dbNote)).catch(err => console.log(err))
         res.send('done noting');
     })
 
+    app.get('/notes', (req, res) => {
+        db.Note.find({})
+            .then(dbNote => res.json(dbNote))
+            .catch(err => res.json(err))
+    })
 
     
 }

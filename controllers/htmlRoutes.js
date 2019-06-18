@@ -7,6 +7,7 @@ module.exports = function (app) {
 
   app.get("/", function (req, res) {
     articles = []
+    notes = []
     db.Article.find({})
       .then(data => {
         // console.log(data)
@@ -14,7 +15,7 @@ module.exports = function (app) {
           // Display the apropos information on the page
           // console.log(data[i])
           article = {
-            id: i,
+            id: data[i].id,
             title: data[i].title,
             link: data[i].link,
             snippet: data[i].snippet
@@ -22,11 +23,11 @@ module.exports = function (app) {
           // console.log(article)
           articles.push(article);
         }
-        // console.log(articles)
+        
+            res.render('index', {articles: articles});
 
-        res.render('index', {articles: articles});
-      })
-      .catch(err => res.json(err))
+
+      }).catch(err => res.json(err))
 
 
 

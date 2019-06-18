@@ -1,7 +1,8 @@
 <div class='container'>
     <h1>NPR Web Scraper</h1>
 
-    <button class = 'btn btn-danger' id="scrape">Click here you stupid bitch</button>
+    <button class='btn btn-danger' id="scrape">Scrape more articles</button>
+    <button class='btn btn-primary' id="show-notes">Show notes</button>
     <div id='articles'>
         {{#each articles}}
         <div class="card">
@@ -9,7 +10,13 @@
                 <h5 class="card-title">{{title}}</h5>
                 <p class="card-text">{{snippet}}</p>
                 <a href={{link}} class="btn btn-primary">Check it out</a>
-                <button class ='btn btn-primary add-note' data-num={{id}}>Add a Note!</button>
+                <form>
+                    <div class="form-group">
+                        <label for={{id}}>User Notes:</label>
+                        <textarea class="form-control user-note" id= {{id}} rows="3"></textarea>
+                    </div>
+                    <button class='btn btn-primary add-note' data-num={{id}}>Save Note</button>
+                </form>
             </div>
         </div>
         {{/each}}
