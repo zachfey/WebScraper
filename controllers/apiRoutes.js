@@ -4,7 +4,7 @@ var db = require('../models');
 
 module.exports = app => {
     app.get('/scrape', (req, res) => {
-        console.log('scraping');
+        console.log('scraping.....');
         axios.get('http://www.npr.org').then(response => {
             let $ = cheerio.load(response.data);
 
